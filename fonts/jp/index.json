@@ -1,0 +1,7 @@
+{
+  "fonts": [
+    {"name": "font1", "url": "font1.ttf"},
+    {"name": "font2", "url": "font2.ttf"}
+  ],
+  "last_updated": "2024-12-28T10:00:00Z"
+}
