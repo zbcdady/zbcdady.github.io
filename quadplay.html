@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuadPlay | Compare Multiple Videos on macOS</title>
+  <meta
+    name="description"
+    content="QuadPlay is a fast, focused multi-video player for macOS that helps you compare local videos side by side in one workspace."
+  />
+  <meta name="theme-color" content="#f1ebe1" />
+  <style>
+    @font-face {
+      font-family: "Tomorrow";
+      src: url("fonts/en/Tomorrow-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Tomorrow";
+      src: url("fonts/en/Tomorrow-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #f1ebe1;
+      --bg-deep: #e4d5c0;
+      --surface: rgba(255, 251, 245, 0.76);
+      --surface-strong: rgba(255, 252, 248, 0.9);
+      --text: #141311;
+      --muted: #625a52;
+      --line: rgba(20, 19, 17, 0.09);
+      --accent: #d8643d;
+      --accent-deep: #9f3b1b;
+      --teal: #155b59;
+      --shadow-soft: 0 24px 80px rgba(36, 28, 18, 0.12);
+      --shadow-strong: 0 32px 120px rgba(36, 28, 18, 0.18);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --max-width: 1180px;
+      --font-display: "SF Pro Display", "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-body: "SF Pro Text", "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-accent: "Tomorrow", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top left, rgba(216, 100, 61, 0.18), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(21, 91, 89, 0.14), transparent 24%),
+        linear-gradient(180deg, #f7f2eb 0%, var(--bg) 48%, #efe7db 100%);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(20, 19, 17, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 19, 17, 0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.46), transparent 85%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+      padding: 22px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      box-shadow: 0 20px 42px rgba(21, 19, 17, 0.18);
+      overflow: hidden;
+      flex: 0 0 auto;
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background: rgba(255, 252, 248, 0.82);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 750;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .brand-subtitle {
+      font-family: var(--font-accent);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .top-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .top-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.03fr) minmax(320px, 0.97fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+      padding: 28px 0 72px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 252, 248, 0.72);
+      box-shadow: 0 12px 30px rgba(41, 30, 19, 0.08);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      width: fit-content;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(216, 100, 61, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(3.1rem, 8.2vw, 6.1rem);
+      font-weight: 780;
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+      max-width: 9.5ch;
+      text-wrap: balance;
+    }
+
+    .hero-copy p {
+      margin: 24px 0 0;
+      max-width: 34rem;
+      font-size: clamp(1.04rem, 1.2vw, 1.14rem);
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #fff8f2;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+      box-shadow: 0 24px 50px rgba(159, 59, 27, 0.28);
+    }
+
+    .button-primary:hover {
+      box-shadow: 0 26px 56px rgba(159, 59, 27, 0.34);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      border-color: rgba(20, 19, 17, 0.12);
+      background: rgba(255, 252, 248, 0.62);
+      box-shadow: 0 16px 34px rgba(41, 30, 19, 0.08);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(20, 19, 17, 0.18);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .meta-pill {
+      font-family: var(--font-body);
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background: rgba(255, 252, 248, 0.7);
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-visual {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(0.5px);
+      z-index: -1;
+    }
+
+    .hero-visual::before {
+      width: 220px;
+      height: 220px;
+      right: -40px;
+      top: 12px;
+      background: radial-gradient(circle, rgba(216, 100, 61, 0.28) 0%, rgba(216, 100, 61, 0) 72%);
+    }
+
+    .hero-visual::after {
+      width: 240px;
+      height: 240px;
+      left: -30px;
+      bottom: 10px;
+      background: radial-gradient(circle, rgba(21, 91, 89, 0.22) 0%, rgba(21, 91, 89, 0) 72%);
+    }
+
+    .studio-frame {
+      position: relative;
+      padding: 24px;
+      border: 1px solid rgba(20, 19, 17, 0.09);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 252, 248, 0.88), rgba(249, 242, 233, 0.78)),
+        rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(18px);
+    }
+
+    .studio-frame::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(20, 19, 17, 0.05);
+      border-radius: 26px;
+      pointer-events: none;
+    }
+
+    .window-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 18px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 7px;
+    }
+
+    .window-controls span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(20, 19, 17, 0.16);
+    }
+
+    .window-title {
+      font-family: var(--font-accent);
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .clip-card {
+      min-height: 168px;
+      padding: 18px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #f9f5ef;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .clip-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 44%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 60%);
+      pointer-events: none;
+    }
+
+    .clip-label {
+      position: relative;
+      z-index: 1;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .clip-name {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-display);
+      font-weight: 720;
+      font-size: 1.5rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      max-width: 8ch;
+    }
+
+    .clip-a {
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 185, 151, 0.22), transparent 40%),
+        linear-gradient(140deg, #171717 0%, #212227 52%, #405372 100%);
+    }
+
+    .clip-b {
+      background:
+        radial-gradient(circle at 84% 20%, rgba(255, 255, 255, 0.16), transparent 34%),
+        linear-gradient(135deg, #0f1616 0%, #0f4642 54%, #1b786f 100%);
+    }
+
+    .clip-c {
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.14), transparent 40%),
+        linear-gradient(135deg, #362922 0%, #8f482d 52%, #d86b42 100%);
+    }
+
+    .clip-d {
+      background:
+        radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.18), transparent 36%),
+        linear-gradient(135deg, #1b1a20 0%, #44405b 52%, #68758d 100%);
+    }
+
+    .timeline-strip {
+      margin-top: 14px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(20, 19, 17, 0.06);
+      border: 1px solid rgba(20, 19, 17, 0.06);
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .timeline-track {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(20, 19, 17, 0.08);
+      overflow: hidden;
+    }
+
+    .timeline-track::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 62%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+    }
+
+    .transport-row {
+      font-family: var(--font-accent);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .transport-icons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .transport-icons span {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 252, 248, 0.72);
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      color: var(--text);
+      font-size: 0.74rem;
+      letter-spacing: 0;
+    }
+
+    .floating-note {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: rgba(255, 252, 248, 0.88);
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      box-shadow: 0 16px 30px rgba(32, 25, 16, 0.12);
+      color: var(--text);
+      font-size: 0.84rem;
+      max-width: 230px;
+      line-height: 1.5;
+    }
+
+    .floating-note::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+
+    .note-focus {
+      right: -18px;
+      top: 72px;
+    }
+
+    .note-focus::before {
+      background: var(--accent);
+    }
+
+    .note-private {
+      left: -28px;
+      bottom: 40px;
+    }
+
+    .note-private::before {
+      background: var(--teal);
+    }
+
+    .section {
+      padding: 38px 0;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      font-family: var(--font-accent);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      font-weight: 760;
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      max-width: 12ch;
+      text-wrap: balance;
+    }
+
+    .section-description {
+      margin: 0;
+      max-width: 42rem;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+    }
+
+    .feature-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(20, 19, 17, 0.06);
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 730;
+      font-size: 1.45rem;
+      letter-spacing: -0.03em;
+    }
+
+    .feature-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .detail-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .callout {
+      padding: clamp(24px, 3vw, 34px);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(150deg, rgba(20, 19, 17, 0.92), rgba(20, 19, 17, 0.82)),
+        var(--text);
+      color: #f7f2eb;
+      box-shadow: var(--shadow-strong);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .callout::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216, 100, 61, 0.24), rgba(216, 100, 61, 0));
+    }
+
+    .callout-tag {
+      font-family: var(--font-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(247, 242, 235, 0.78);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .callout-tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #82d0ca;
+    }
+
+    .callout h3 {
+      margin: 22px 0 16px;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 760;
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+      position: relative;
+      z-index: 1;
+    }
+
+    .callout p {
+      margin: 0;
+      max-width: 34rem;
+      line-height: 1.85;
+      color: rgba(247, 242, 235, 0.76);
+      position: relative;
+      z-index: 1;
+    }
+
+    .support-card {
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 22px;
+    }
+
+    .support-block h3 {
+      margin: 0 0 14px;
+      font-family: var(--font-display);
+      font-weight: 730;
+      font-size: 1.55rem;
+      letter-spacing: -0.03em;
+    }
+
+    .support-block p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.78;
+      font-size: 0.95rem;
+    }
+
+    .format-list,
+    .language-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .format-chip,
+    .language-chip {
+      font-family: var(--font-accent);
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background: rgba(241, 235, 225, 0.72);
+      color: var(--text);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .legal-card {
+      margin-top: 18px;
+      padding: clamp(26px, 4vw, 36px);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 252, 248, 0.88), rgba(250, 244, 236, 0.78)),
+        rgba(255, 255, 255, 0.7);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .legal-card h3 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 760;
+      line-height: 1;
+      letter-spacing: -0.055em;
+      max-width: 13ch;
+    }
+
+    .legal-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.86;
+      font-size: 0.98rem;
+    }
+
+    .legal-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .legal-list li {
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(20, 19, 17, 0.08);
+      background: rgba(255, 252, 248, 0.76);
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.94rem;
+    }
+
+    .legal-list strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .legal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 26px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: reveal-up 740ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 100ms;
+    }
+
+    .delay-2 {
+      animation-delay: 180ms;
+    }
+
+    .delay-3 {
+      animation-delay: 260ms;
+    }
+
+    @keyframes reveal-up {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .detail-panel,
+      .legal-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .note-focus {
+        right: 18px;
+      }
+
+      .note-private {
+        left: 18px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(calc(100% - 22px), var(--max-width));
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 8px;
+      }
+
+      h1 {
+        max-width: 7.5ch;
+        font-size: clamp(2.9rem, 15vw, 4.6rem);
+      }
+
+      .studio-frame {
+        padding: 18px;
+      }
+
+      .workspace-grid {
+        gap: 12px;
+      }
+
+      .clip-card {
+        min-height: 144px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-note {
+        position: static;
+        margin-top: 14px;
+        max-width: none;
+      }
+
+      .legal-card,
+      .support-card,
+      .callout,
+      .feature-card {
+        border-radius: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar reveal">
+      <a class="brand" href="quadplay.html" aria-label="QuadPlay home">
+        <span class="brand-mark">
+          <img src="assets/images/quadview.webp" alt="" />
+        </span>
+        <span class="brand-copy">
+          <span class="brand-title">QuadPlay</span>
+          <span class="brand-subtitle">Multiple Videos. One Workspace.</span>
+        </span>
+      </a>
+      <nav class="top-links" aria-label="Secondary links">
+        <a href="#features">Features</a>
+        <a href="#subscription">Subscription</a>
+        <a href="https://zbcdady.github.io/policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow reveal delay-1">macOS multi-video player</div>
+          <h1 class="reveal delay-1">See every take. Keep one workspace.</h1>
+          <p class="reveal delay-2">
+            QuadPlay is a fast, focused multi-video player for macOS. Load local videos side by side,
+            compare alternate takes or camera angles, switch tracks, jump through the timeline, and move
+            into Focus Mode whenever one clip needs your full attention.
+          </p>
+          <div class="hero-actions reveal delay-2">
+            <a
+              class="button button-primary"
+              href="https://apps.apple.com/cn/app/quadplay-multiple-videos/id6761234523?l=en-GB&amp;mt=12"
+              onclick="return openAppStore(event);"
+              aria-label="Download QuadPlay on the Mac App Store"
+            >
+              Download on the Mac App Store
+            </a>
+            <a class="button button-secondary" href="#features">Explore features</a>
+          </div>
+          <div class="meta-row reveal delay-3" aria-label="Highlights">
+            <span class="meta-pill">Built for local media</span>
+            <span class="meta-pill">Focus Mode</span>
+            <span class="meta-pill">Audio + subtitle controls</span>
+            <span class="meta-pill">English + Simplified Chinese</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-2" aria-hidden="true">
+          <div class="studio-frame">
+            <div class="window-bar">
+              <div class="window-controls">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="window-title">QuadPlay Workspace</div>
+            </div>
+
+            <div class="workspace-grid">
+              <article class="clip-card clip-a">
+                <span class="clip-label">Cam A</span>
+                <strong class="clip-name">Wide Shot</strong>
+              </article>
+              <article class="clip-card clip-b">
+                <span class="clip-label">Cam B</span>
+                <strong class="clip-name">Close Detail</strong>
+              </article>
+              <article class="clip-card clip-c">
+                <span class="clip-label">Edit</span>
+                <strong class="clip-name">Alt Cut</strong>
+              </article>
+              <article class="clip-card clip-d">
+                <span class="clip-label">Reference</span>
+                <strong class="clip-name">Match Frame</strong>
+              </article>
+            </div>
+
+            <div class="timeline-strip">
+              <div class="timeline-top">
+                <span>Quick seeking and progress scrubbing</span>
+                <span>02:18 / 03:42</span>
+              </div>
+              <div class="timeline-track"></div>
+              <div class="transport-row">
+                <div class="transport-icons">
+                  <span>-10</span>
+                  <span>Play</span>
+                  <span>+10</span>
+                </div>
+                <span>Audio / Subtitles / Focus</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-note note-focus">Focus Mode isolates a single clip without losing the rest of your setup.</div>
+          <div class="floating-note note-private">Incognito Mode lets you work without saving workspace data to disk.</div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-head reveal">
+          <span class="section-kicker">Why QuadPlay</span>
+          <h2>Built for comparison, not clutter.</h2>
+          <p class="section-description">
+            When you are reviewing edits, checking timing, or studying reference footage, the work is not
+            about a giant media library. It is about keeping the right clips visible, responsive, and easy
+            to control. QuadPlay keeps the interface focused on that job.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal delay-1">
+            <div class="feature-number">01</div>
+            <h3>Side-by-side review</h3>
+            <p>Open multiple local videos in one window and keep every clip in view while you compare timing, framing, and edits.</p>
+          </article>
+          <article class="feature-card reveal delay-1">
+            <div class="feature-number">02</div>
+            <h3>Drop files straight in</h3>
+            <p>Drag and drop videos directly into your workspace so you can move from Finder to playback without setup overhead.</p>
+          </article>
+          <article class="feature-card reveal delay-2">
+            <div class="feature-number">03</div>
+            <h3>Fast playback control</h3>
+            <p>Smooth playback, quick seeking, and progress scrubbing help you move through footage without breaking concentration.</p>
+          </article>
+          <article class="feature-card reveal delay-2">
+            <div class="feature-number">04</div>
+            <h3>Focus when needed</h3>
+            <p>Switch into Focus Mode to isolate one video for a closer look, then return to your full comparison layout.</p>
+          </article>
+          <article class="feature-card reveal delay-3">
+            <div class="feature-number">05</div>
+            <h3>Track-level control</h3>
+            <p>Choose audio tracks, switch subtitle tracks, or load external subtitle files without leaving the workspace.</p>
+          </article>
+          <article class="feature-card reveal delay-3">
+            <div class="feature-number">06</div>
+            <h3>Private by default</h3>
+            <p>Your videos stay on your device, and Incognito Mode gives you a clean session that does not write workspace data to disk.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="detail-panel">
+          <article class="callout reveal">
+            <div class="callout-tag">Local-first workflow</div>
+            <h3>Made for real files on your Mac.</h3>
+            <p>
+              QuadPlay is designed around local video review. Bring in the footage you already have, arrange
+              a workspace that matches the comparison you are doing, and stay in control of playback, tracks,
+              and subtitles without routing your media through a cloud service.
+            </p>
+          </article>
+
+          <aside class="support-card reveal delay-1">
+            <div class="support-block">
+              <h3>Format support</h3>
+              <p>QuadPlay supports common video formats used in everyday review workflows.</p>
+            </div>
+            <div class="format-list" aria-label="Supported formats">
+              <span class="format-chip">MP4</span>
+              <span class="format-chip">MOV</span>
+              <span class="format-chip">MKV</span>
+              <span class="format-chip">WEBM</span>
+              <span class="format-chip">AVI</span>
+              <span class="format-chip">FLV</span>
+              <span class="format-chip">TS</span>
+              <span class="format-chip">M2TS</span>
+            </div>
+            <div class="support-block">
+              <h3>Interface languages</h3>
+              <p>Available in English and Simplified Chinese.</p>
+            </div>
+            <div class="language-list" aria-label="Supported languages">
+              <span class="language-chip">English</span>
+              <span class="language-chip">Simplified Chinese</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="subscription">
+        <div class="section-head reveal">
+          <span class="section-kicker">Subscription</span>
+          <h2>Simple plans, managed through Apple.</h2>
+          <p class="section-description">
+            QuadPlay Pro is available as an auto-renewing 1-month or 1-year subscription. Pricing is shown
+            on the in-app purchase screen at checkout.
+          </p>
+        </div>
+
+        <div class="legal-card reveal delay-1">
+          <div>
+            <h3>Billing stays inside the Mac App Store flow.</h3>
+            <p>
+              Payment is charged to your Apple account when the purchase is confirmed. Renewal is processed
+              within 24 hours before the current period ends, and the subscription extends by one more cycle
+              after successful payment. To stop renewal, open Apple account subscription settings and cancel
+              QuadPlay Pro at least 24 hours before the current subscription period ends.
+            </p>
+            <div class="legal-actions">
+              <a
+                class="button button-primary"
+                href="https://apps.apple.com/cn/app/quadplay-multiple-videos/id6761234523?l=en-GB&amp;mt=12"
+                onclick="return openAppStore(event);"
+              >
+                View on the Mac App Store
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://zbcdady.github.io/policy.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+
+          <ul class="legal-list">
+            <li>
+              <strong>Plans</strong>
+              QuadPlay Pro 1-month auto-renewing subscription and QuadPlay Pro 1-year auto-renewing subscription.
+            </li>
+            <li>
+              <strong>Price</strong>
+              The actual price is the one shown on the App Store purchase page at the time of checkout.
+            </li>
+            <li>
+              <strong>Terms</strong>
+              <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Read Apple's Terms of Use</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer reveal delay-1">
+      <span>QuadPlay for macOS. Multiple videos, one focused workspace.</span>
+      <span>
+        <a href="https://zbcdady.github.io/policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        /
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+      </span>
+    </footer>
+  </div>
+
+  <script>
+    function openAppStore(event) {
+      var webUrl = "https://apps.apple.com/cn/app/quadplay-multiple-videos/id6761234523?l=en-GB&mt=12";
+      var macStoreUrl = "macappstore://itunes.apple.com/app/id6761234523?mt=12";
+      var isApplePlatform = /Mac|iPhone|iPad|iPod/.test(navigator.platform) || /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
+
+      if (event) {
+        event.preventDefault();
+      }
+
+      if (!isApplePlatform) {
+        window.location.href = webUrl;
+        return false;
+      }
+
+      var pageHidden = false;
+      var onVisibilityChange = function () {
+        if (document.hidden) {
+          pageHidden = true;
+        }
+      };
+
+      document.addEventListener("visibilitychange", onVisibilityChange, { once: true });
+      window.location.href = macStoreUrl;
+
+      window.setTimeout(function () {
+        if (!pageHidden) {
+          window.location.href = webUrl;
+        }
+      }, 900);
+
+      return false;
+    }
+  </script>
+</body>
+</html>
