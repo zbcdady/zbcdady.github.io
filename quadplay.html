@@ -95,7 +95,7 @@
       z-index: 1;
       width: min(calc(100% - 32px), var(--max-width));
       margin: 0 auto;
-      padding: 22px 0 80px;
+      padding: 22px 0 132px;
     }
 
     .topbar {
@@ -255,6 +255,25 @@
       cursor: pointer;
     }
 
+    .button-copy {
+      display: grid;
+      gap: 2px;
+      text-align: left;
+    }
+
+    .button-copy strong {
+      font-size: 0.97rem;
+      line-height: 1.05;
+      font-weight: 760;
+    }
+
+    .button-copy small {
+      font-size: 0.74rem;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      opacity: 0.82;
+    }
+
     .button:hover {
       transform: translateY(-1px);
     }
@@ -267,6 +286,31 @@
 
     .button-primary:hover {
       box-shadow: 0 26px 56px rgba(159, 59, 27, 0.34);
+    }
+
+    .button-primary.button-store {
+      min-height: 64px;
+      padding: 0 26px 0 18px;
+      gap: 14px;
+      box-shadow: 0 28px 62px rgba(159, 59, 27, 0.34);
+    }
+
+    .button-primary.button-store:hover {
+      box-shadow: 0 32px 68px rgba(159, 59, 27, 0.4);
+    }
+
+    .button-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: rgba(255, 248, 242, 0.18);
+      border: 1px solid rgba(255, 248, 242, 0.2);
+      font-size: 1rem;
+      line-height: 1;
+      flex: 0 0 auto;
     }
 
     .button-secondary {
@@ -296,6 +340,87 @@
       color: var(--muted);
       font-size: 0.84rem;
       letter-spacing: 0.03em;
+    }
+
+    .floating-download {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 68px;
+      padding: 12px 16px 12px 14px;
+      border-radius: 24px;
+      text-decoration: none;
+      color: #fff8f2;
+      background:
+        linear-gradient(135deg, rgba(216, 100, 61, 0.98) 0%, rgba(159, 59, 27, 0.98) 100%);
+      box-shadow: 0 24px 60px rgba(126, 48, 25, 0.32);
+      border: 1px solid rgba(255, 248, 242, 0.14);
+      backdrop-filter: blur(18px);
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .floating-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 28px 70px rgba(126, 48, 25, 0.42);
+    }
+
+    .floating-download-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 248, 242, 0.18);
+      background: rgba(255, 248, 242, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .floating-download-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-download-copy {
+      display: grid;
+      gap: 2px;
+      text-align: left;
+    }
+
+    .floating-download-copy strong {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 760;
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+    }
+
+    .floating-download-copy span {
+      font-family: var(--font-accent);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 248, 242, 0.84);
+    }
+
+    .floating-download-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: rgba(255, 248, 242, 0.14);
+      border: 1px solid rgba(255, 248, 242, 0.16);
+      font-size: 1rem;
+      line-height: 1;
+      flex: 0 0 auto;
     }
 
     .hero-visual {
@@ -981,6 +1106,7 @@
     @media (max-width: 760px) {
       .page-shell {
         width: min(calc(100% - 22px), var(--max-width));
+        padding-bottom: 148px;
       }
 
       .topbar {
@@ -1025,6 +1151,19 @@
       .feature-card {
         border-radius: 24px;
       }
+
+      .button-primary.button-store {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .floating-download {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        border-radius: 22px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1043,6 +1182,22 @@
   </style>
 </head>
 <body>
+  <a
+    class="floating-download"
+    href="https://apps.apple.com/cn/app/quadplay-multiple-videos/id6761234523?l=en-GB&amp;mt=12"
+    onclick="return openAppStore(event);"
+    aria-label="Download QuadPlay from the Mac App Store"
+  >
+    <span class="floating-download-mark">
+      <img src="assets/images/quadview.webp" alt="" />
+    </span>
+    <span class="floating-download-copy">
+      <span>Mac App Store</span>
+      <strong>Download QuadPlay</strong>
+    </span>
+    <span class="floating-download-arrow" aria-hidden="true">↓</span>
+  </a>
+
   <div class="page-shell">
     <header class="topbar reveal">
       <a class="brand" href="quadplay.html" aria-label="QuadPlay home">
@@ -1073,12 +1228,16 @@
           </p>
           <div class="hero-actions reveal delay-2">
             <a
-              class="button button-primary"
+              class="button button-primary button-store"
               href="https://apps.apple.com/cn/app/quadplay-multiple-videos/id6761234523?l=en-GB&amp;mt=12"
               onclick="return openAppStore(event);"
               aria-label="Download QuadPlay on the Mac App Store"
             >
-              Download on the Mac App Store
+              <span class="button-icon" aria-hidden="true">↓</span>
+              <span class="button-copy">
+                <strong>Download for macOS</strong>
+                <small>Open in the Mac App Store</small>
+              </span>
             </a>
             <a class="button button-secondary" href="#features">Explore features</a>
           </div>
