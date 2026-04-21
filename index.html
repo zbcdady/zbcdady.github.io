@@ -1,476 +1,1377 @@
-<!DOCTYPE HTML>
-<!--
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Time Machine</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Time Machine | My Days</title>
+    <meta
+      id="meta-description"
+      name="description"
+      content="Time Machine / My Days - anniversaries, countdowns, birthdays, widgets, and reminders that keep your most important days in sight."
+    />
+    <meta name="theme-color" content="#1c120b" />
+    <meta name="format-detection" content="telephone=no,email=no,address=no" />
+    <script>
+      (function () {
+        var savedLang = null;
+        try {
+          savedLang = window.localStorage.getItem("time-machine-lang");
+        } catch (error) {}
 
-		<!-- Header -->
-			<section id="header">
-				<div class="inner">
-					<img src="images/icon.png" alt="" />
-					<!-- <span class="icon solid major fa-desktop"></span> -->
-					<h1> <strong>Time Machine</strong><br/>
-					<a></a></h1>
-					<p>About time, about you</p>
-					<p>Contact Us: <a href="mailto:zbcdady@gmail.com">zbcdady@gmail.com</a></p>
-					<p>·</p>
-					<p>This is a magical app that you can use to focus on important things. Trust me, you will like this APP.</p>
-					<p>·</p>
-					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Download</a></li>
-					</ul>
-				</div>
-			</section>
+        var browserLang = (navigator.language || "").toLowerCase();
+        var initialLang = savedLang || (browserLang.indexOf("zh") === 0 ? "zh" : "en");
+        document.documentElement.lang = initialLang === "zh" ? "zh-CN" : "en";
+        document.documentElement.classList.add("js");
+      })();
+    </script>
+    <style>
+      @font-face {
+        font-family: "TomorrowRegular";
+        src: url("fonts/en/Tomorrow-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
 
-		<!-- One -->
-			<section id="one" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<span>iPhone:</span>
-							<div style="height: 10px;"></div>
-							<div><button onclick="location.href='https://apps.apple.com/cn/app/%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8pro/id1502507360'">App Store</button></div>
-							<p></p>
-							<span>Android</span>
-							<div style="height: 10px;"></div>
-							<div><button onclick="location.href='https://play.google.com/store/apps/details?id=com.abouttime.timemachine'">Google Play</button></div>
-							<div style="height: 20px;"></div>
-							<div><button onclick="location.href='https://github.com/zbcdady/zbcdady.github.io/raw/master/timemachine.apk'">Download apk</button></div>
-							<p></p>
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>
+      @font-face {
+        font-family: "TomorrowLocal";
+        src: url("fonts/en/Tomorrow-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
 
-		<!-- Two -->
-			<!-- <section id="two" class="main style2">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<ul class="major-icons">
-								<li><span class="icon solid style1 major fa-code"></span></li>
-								<li><span class="icon solid style2 major fa-bolt"></span></li>
-								<li><span class="icon solid style3 major fa-camera-retro"></span></li>
-								<li><span class="icon solid style4 major fa-cog"></span></li>
-								<li><span class="icon solid style5 major fa-desktop"></span></li>
-								<li><span class="icon solid style6 major fa-calendar"></span></li>
-							</ul>
-						</div>
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Lorem ipsum dolor adipiscing<br />
-								amet dolor consequat</h2>
-							</header>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-							<p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-						</div>
-					</div>
-				</div>
-			</section>
+      @font-face {
+        font-family: "RoundedCn";
+        src: url("fonts/zh/圆体.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
 
-		Three -->
-			<!-- <section id="three" class="main style1 special">
-				<div class="container">
-					<header class="major">
-						<h2>Adipiscing amet consequat</h2>
-					</header>
-					<p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
-					<div class="row gtr-150">
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
+      :root {
+        color-scheme: dark;
+        --bg: #120b07;
+        --bg-soft: #21120b;
+        --panel: rgba(36, 22, 13, 0.8);
+        --panel-strong: rgba(52, 31, 18, 0.92);
+        --line: rgba(255, 214, 153, 0.16);
+        --text: #fff6eb;
+        --muted: #d5bfaa;
+        --gold: #ffb347;
+        --gold-strong: #ff8f1f;
+        --gold-soft: #ffe2b6;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --safe-top: max(24px, env(safe-area-inset-top));
+        --safe-right: max(20px, env(safe-area-inset-right));
+        --safe-bottom: max(24px, env(safe-area-inset-bottom));
+        --safe-left: max(20px, env(safe-area-inset-left));
+      }
 
-		<!-- Four -->
-			<!-- <section id="four" class="main style2 special">
-				<div class="container">
-					<header class="major">
-						<h2>Ipsum feugiat consequat?</h2>
-					</header>
-					<p>Sed lacus nascetur ac ante amet sapien.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button wide primary">Sign Up</a></li>
-						<li><a href="#" class="button wide">Learn More</a></li>
-					</ul>
-				</div>
-			</section> --> 
+      * {
+        box-sizing: border-box;
+      }
 
-		<!-- Five -->
-		<!--
-			<section id="five" class="main style1">
-				<div class="container">
-					<header class="major special">
-						<h2>Elements</h2>
-					</header>
+      html {
+        scroll-behavior: smooth;
+      }
 
-					<section>
-						<h4>Text</h4>
-						<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-						This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-						This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-						<hr />
-						<header>
-							<h4>Heading with a Subtitle</h4>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<header>
-							<h5>Heading with a Subtitle</h5>
-							<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-						</header>
-						<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-						<hr />
-						<h2>Heading Level 2</h2>
-						<h3>Heading Level 3</h3>
-						<h4>Heading Level 4</h4>
-						<h5>Heading Level 5</h5>
-						<h6>Heading Level 6</h6>
-						<hr />
-						<h5>Blockquote</h5>
-						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-						<h5>Preformatted</h5>
-						<pre><code>i = 0;
+      body {
+        margin: 0;
+        min-width: 320px;
+        font-family: "TomorrowRegular", "RoundedCn", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 161, 59, 0.2), transparent 28%),
+          radial-gradient(circle at 85% 18%, rgba(255, 196, 126, 0.16), transparent 22%),
+          linear-gradient(180deg, #1c120b 0%, #120b07 55%, #090605 100%);
+      }
 
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
+      html.js body {
+        opacity: 0;
+      }
 
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-					</section>
+      html.js body.i18n-ready {
+        opacity: 1;
+      }
 
-					<section>
-						<h4>Lists</h4>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<h5>Unordered</h5>
-								<ul>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Sagittis adipiscing.</li>
-									<li>Felis enim feugiat.</li>
-								</ul>
-								<h5>Alternate</h5>
-								<ul class="alt">
-									<li>Dolor pulvinar etiam.</li>
-									<li>Sagittis adipiscing.</li>
-									<li>Felis enim feugiat.</li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-medium">
-								<h5>Ordered</h5>
-								<ol>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Etiam vel felis viverra.</li>
-									<li>Felis enim feugiat.</li>
-									<li>Dolor pulvinar etiam.</li>
-									<li>Etiam vel felis lorem.</li>
-									<li>Felis enim et feugiat.</li>
-								</ol>
-								<h5>Icons</h5>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								</ul>
-							</div>
-						</div>
-						<h5>Actions</h5>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<ul class="actions">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions small">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-							</div>
-							<div class="col-6 col-12-medium">
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary fit">Default</a></li>
-									<li><a href="#" class="button fit">Default</a></li>
-								</ul>
-								<ul class="actions stacked">
-									<li><a href="#" class="button primary small fit">Small</a></li>
-									<li><a href="#" class="button small fit">Small</a></li>
-								</ul>
-							</div>
-						</div>
-					</section>
+      html[lang^="zh"] body {
+        font-family: "RoundedCn", "PingFang SC", "Hiragino Sans GB",
+          "Microsoft YaHei", sans-serif;
+      }
 
-					<section>
-						<h4>Table</h4>
-						<h5>Default</h5>
-						<div class="table-wrapper">
-							<table>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-						<h5>Alternate</h5>
-						<div class="table-wrapper">
-							<table class="alt">
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Item One</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Two</td>
-										<td>Vis ac commodo adipiscing arcu aliquet.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Three</td>
-										<td> Morbi faucibus arcu accumsan lorem.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>Item Four</td>
-										<td>Vitae integer tempus condimentum.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>Item Five</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-										<td>29.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-					</section>
+      img {
+        display: block;
+        max-width: 100%;
+      }
 
-					<section>
-						<h4>Buttons</h4>
-						<ul class="actions">
-							<li><a href="#" class="button primary">Primary</a></li>
-							<li><a href="#" class="button">Default</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button large">Large</a></li>
-							<li><a href="#" class="button">Default</a></li>
-							<li><a href="#" class="button small">Small</a></li>
-						</ul>
-						<ul class="actions fit">
-							<li><a href="#" class="button fit">Fit</a></li>
-							<li><a href="#" class="button primary fit">Fit</a></li>
-							<li><a href="#" class="button fit">Fit</a></li>
-						</ul>
-						<ul class="actions fit small">
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-							<li><a href="#" class="button fit small">Fit + Small</a></li>
-							<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-						</ul>
-						<ul class="actions">
-							<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-							<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-						</ul>
-						<ul class="actions">
-							<li><span class="button primary disabled">Disabled</span></li>
-							<li><span class="button disabled">Disabled</span></li>
-						</ul>
-					</section>
+      .page {
+        position: relative;
+        overflow: clip;
+      }
 
-					<section>
-						<h4>Form</h4>
-						<form method="post" action="#">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-								</div>
-								<div class="col-6 col-12-xsmall">
-									<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-								</div>
-								<div class="col-12">
-									<select name="demo-category" id="demo-category">
-										<option value="">- Category -</option>
-										<option value="1">Manufacturing</option>
-										<option value="1">Shipping</option>
-										<option value="1">Administration</option>
-										<option value="1">Human Resources</option>
-									</select>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-									<label for="demo-priority-low">Low</label>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-normal" name="demo-priority">
-									<label for="demo-priority-normal">Normal</label>
-								</div>
-								<div class="col-4 col-12-small">
-									<input type="radio" id="demo-priority-high" name="demo-priority">
-									<label for="demo-priority-high">High</label>
-								</div>
-								<div class="col-6 col-12-small">
-									<input type="checkbox" id="demo-copy" name="demo-copy">
-									<label for="demo-copy">Email me a copy</label>
-								</div>
-								<div class="col-6 col-12-small">
-									<input type="checkbox" id="demo-human" name="demo-human" checked>
-									<label for="demo-human">Not a robot</label>
-								</div>
-								<div class="col-12">
-									<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-								</div>
-								<div class="col-12">
-									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
-					</section>
+      .page::before,
+      .page::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        pointer-events: none;
+        filter: blur(8px);
+      }
 
-					<section>
-						<h4>Image</h4>
-						<h5>Fit</h5>
-						<div class="box alt">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-12"><span class="image fit"><img src="images/pic06.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-								<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-							</div>
-						</div>
-						<h5>Left &amp; Right</h5>
-						<p><span class="image left"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						<p><span class="image right"><img src="images/pic05.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-					</section>
+      .page::before {
+        top: 8rem;
+        left: -6rem;
+        width: 18rem;
+        height: 18rem;
+        background: rgba(255, 170, 71, 0.14);
+      }
 
-				</div>
-			</section>
-		-->
+      .page::after {
+        top: 28rem;
+        right: -7rem;
+        width: 22rem;
+        height: 22rem;
+        background: rgba(255, 219, 170, 0.08);
+      }
 
-		<!-- Footer -->
-			<section id="footer">
-				<!-- <ul class="icons">
-					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-				</ul> -->
-				<ul class="copyright">
-					<li>&copy; Time Machine</li><li>Email: <a>zbcdady@gmail.com</a></li>
-				</ul>
-			</section>
+      .shell {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: var(--safe-top) var(--safe-right) 0 var(--safe-left);
+        backdrop-filter: blur(18px);
+        background: linear-gradient(180deg, rgba(11, 7, 5, 0.82), rgba(11, 7, 5, 0));
+      }
 
-	</body>
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.95rem 0 1rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.9rem;
+        min-width: 0;
+      }
+
+      .brand img {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      }
+
+      .brand-copy {
+        min-width: 0;
+      }
+
+      .brand-title {
+        display: block;
+        font-family: "TomorrowLocal", "RoundedCn", sans-serif;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand-subtitle {
+        display: block;
+        color: var(--muted);
+        font-size: 0.82rem;
+        margin-top: 0.15rem;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav a {
+        min-height: 44px;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        color: var(--muted);
+        transition: background-color 160ms ease, color 160ms ease,
+          transform 160ms ease;
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.06);
+        transform: translateY(-1px);
+      }
+
+      .lang-toggle {
+        min-height: 44px;
+        padding: 0.7rem 1rem;
+        border: 1px solid rgba(255, 212, 158, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font: inherit;
+        cursor: pointer;
+        transition: background-color 160ms ease, transform 160ms ease,
+          border-color 160ms ease;
+      }
+
+      .lang-toggle:hover,
+      .lang-toggle:focus-visible {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 212, 158, 0.28);
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        padding: 3rem var(--safe-right) 1.5rem var(--safe-left);
+      }
+
+      .hero-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+        gap: 2rem;
+        align-items: center;
+        min-height: min(860px, calc(100svh - 5rem));
+        padding: clamp(1.6rem, 2vw + 1rem, 2.4rem);
+        border: 1px solid var(--line);
+        border-radius: calc(var(--radius-xl) + 4px);
+        background:
+          linear-gradient(145deg, rgba(255, 188, 90, 0.12), rgba(255, 255, 255, 0.02)),
+          rgba(22, 13, 8, 0.84);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: auto auto -18% -6%;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 172, 77, 0.22), transparent 66%);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.55rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 206, 147, 0.22);
+        background: rgba(255, 183, 96, 0.08);
+        color: var(--gold-soft);
+        font-size: 0.84rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-copy h1 {
+        margin: 1rem 0 0;
+        font-size: clamp(2.8rem, 6vw, 5.6rem);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-copy p {
+        max-width: 34rem;
+        margin: 1.1rem 0 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1vw + 0.86rem, 1.15rem);
+        line-height: 1.8;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 1.6rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0.95rem 1.35rem;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-weight: 700;
+        transition: transform 180ms ease, box-shadow 180ms ease,
+          border-color 180ms ease, background-color 180ms ease;
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold-strong));
+        color: #241409;
+        box-shadow: 0 16px 34px rgba(255, 143, 31, 0.28);
+      }
+
+      .btn-secondary {
+        border-color: rgba(255, 212, 158, 0.18);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin-top: 2rem;
+      }
+
+      .meta-card {
+        padding: 1rem 1rem 1.05rem;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255, 216, 160, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .meta-value {
+        display: block;
+        color: var(--gold-soft);
+        font-family: "TomorrowLocal", "RoundedCn", sans-serif;
+        font-size: 0.88rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .meta-label {
+        display: block;
+        margin-top: 0.42rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.5;
+      }
+
+      .hero-visual {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 540px;
+      }
+
+      .glow-ring {
+        position: absolute;
+        inset: 14% auto auto 50%;
+        width: min(30rem, 84%);
+        aspect-ratio: 1;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255, 199, 133, 0.45), rgba(255, 156, 45, 0.16) 40%, transparent 68%),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), transparent 72%);
+        filter: blur(4px);
+      }
+
+      .phone {
+        position: relative;
+        width: min(320px, 74vw);
+        padding: 14px;
+        border-radius: 42px;
+        background:
+          linear-gradient(155deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03)),
+          #140b07;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+        transform: rotate(-8deg);
+      }
+
+      .phone::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: 34%;
+        height: 22px;
+        transform: translateX(-50%);
+        border-radius: 0 0 18px 18px;
+        background: rgba(8, 6, 5, 0.94);
+      }
+
+      .phone-screen {
+        position: relative;
+        border-radius: 30px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #26150b, #120c08);
+        aspect-ratio: 9 / 19.5;
+      }
+
+      .phone-screen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.85;
+      }
+
+      .phone-screen::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(13, 8, 5, 0.04), rgba(13, 8, 5, 0.56)),
+          linear-gradient(150deg, rgba(255, 161, 59, 0.28), transparent 35%);
+      }
+
+      .screen-overlay {
+        position: absolute;
+        inset: auto 1rem 1rem;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .screen-pill,
+      .float-card {
+        border: 1px solid rgba(255, 214, 160, 0.14);
+        border-radius: 18px;
+        background: rgba(17, 10, 6, 0.76);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+      }
+
+      .screen-pill {
+        padding: 0.8rem 0.9rem;
+      }
+
+      .screen-pill strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .screen-pill span {
+        display: block;
+        margin-top: 0.15rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .float-card {
+        position: absolute;
+        padding: 0.95rem 1rem;
+        line-height: 1.35;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .float-card strong {
+        display: block;
+        color: var(--gold-soft);
+        font-size: 1rem;
+      }
+
+      .float-card span {
+        display: block;
+        margin-top: 0.22rem;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .float-top {
+        top: 3rem;
+        right: 0;
+        transform: translate(10%, 0);
+      }
+
+      .float-left {
+        left: 0;
+        bottom: 6rem;
+        transform: translate(-18%, 0);
+        animation-delay: 1.2s;
+      }
+
+      .float-bottom {
+        right: 1.6rem;
+        bottom: 1rem;
+        animation-delay: 2.1s;
+      }
+
+      .feature-band {
+        padding: 0 var(--safe-right) 1.5rem var(--safe-left);
+      }
+
+      .feature-band-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .band-item {
+        padding: 1.15rem 1.1rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+      }
+
+      .band-item strong {
+        display: block;
+        font-size: 1rem;
+      }
+
+      .band-item span {
+        display: block;
+        margin-top: 0.45rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .section {
+        padding: 1.5rem var(--safe-right) 0 var(--safe-left);
+      }
+
+      .section-card {
+        padding: clamp(1.4rem, 2.2vw, 2rem);
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--line);
+        background: rgba(23, 14, 9, 0.7);
+        box-shadow: var(--shadow);
+      }
+
+      .section-head {
+        max-width: 42rem;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        color: var(--gold-soft);
+        font-size: 0.84rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-head h2 {
+        margin: 0.75rem 0 0;
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.05;
+      }
+
+      .section-head p {
+        margin: 0.95rem 0 0;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .feature-card {
+        padding: 1.35rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 214, 153, 0.12);
+        background:
+          linear-gradient(150deg, rgba(255, 185, 92, 0.1), transparent 45%),
+          rgba(255, 255, 255, 0.03);
+      }
+
+      .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 14px;
+        background: rgba(255, 184, 90, 0.12);
+        color: var(--gold-soft);
+        font-size: 1.2rem;
+      }
+
+      .feature-card h3 {
+        margin: 1rem 0 0;
+        font-size: 1.18rem;
+      }
+
+      .feature-card p {
+        margin: 0.6rem 0 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .compat-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .compat-panel {
+        padding: 1.4rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 214, 153, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .compat-list {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .compat-item {
+        padding: 1rem 1.05rem;
+        border-radius: 18px;
+        background: rgba(0, 0, 0, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .compat-item strong {
+        display: block;
+        font-size: 1rem;
+      }
+
+      .compat-item span {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .download-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .store-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1.25rem;
+        padding: 1.4rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 214, 153, 0.12);
+        background:
+          linear-gradient(155deg, rgba(255, 185, 92, 0.1), transparent 42%),
+          rgba(255, 255, 255, 0.03);
+      }
+
+      .platform-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 187, 94, 0.12);
+        color: var(--gold-soft);
+        font-size: 0.82rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .store-card h3 {
+        margin: 0.95rem 0 0;
+        font-size: 1.28rem;
+      }
+
+      .store-card p {
+        margin: 0.55rem 0 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .store-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: fit-content;
+        min-height: 56px;
+        padding: 0.45rem 0;
+      }
+
+      .store-badge img {
+        height: 54px;
+        width: auto;
+      }
+
+      .footer {
+        padding: 1.5rem var(--safe-right) var(--safe-bottom) var(--safe-left);
+      }
+
+      .footer-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .footer-email {
+        color: var(--gold-soft);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+
+        50% {
+          transform: translate3d(0, -10px, 0);
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .hero-card,
+        .compat-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 480px;
+          order: -1;
+        }
+
+        .feature-band-grid,
+        .feature-grid,
+        .download-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 1rem, 1180px);
+        }
+
+        .topbar-inner,
+        .footer-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .hero {
+          padding-top: 1rem;
+        }
+
+        .hero-card {
+          min-height: auto;
+          gap: 1.25rem;
+          padding: 1.2rem;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(2.4rem, 14vw, 4rem);
+        }
+
+        .hero-meta,
+        .feature-band-grid,
+        .feature-grid,
+        .download-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 400px;
+        }
+
+        .phone {
+          width: min(290px, 82vw);
+          transform: rotate(-5deg);
+        }
+
+        .float-top {
+          top: 1.6rem;
+          right: 0.2rem;
+        }
+
+        .float-left {
+          left: 0.1rem;
+          bottom: 5rem;
+          transform: none;
+        }
+
+        .float-bottom {
+          right: 0.2rem;
+          bottom: 0.2rem;
+        }
+
+        .store-badge img {
+          height: 50px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .float-card,
+        .btn,
+        .nav a {
+          animation: none;
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="shell topbar-inner">
+          <a class="brand" href="#top" data-i18n-aria-label="brandAriaLabel">
+            <img src="images/icon.png" data-i18n-alt="brandIconAlt" alt="Time Machine app icon" />
+            <span class="brand-copy">
+              <span class="brand-title">Time Machine</span>
+              <span class="brand-subtitle" data-i18n="brandSubtitle">My Days / important day tracker</span>
+            </span>
+          </a>
+          <nav class="nav" data-i18n-aria-label="navAriaLabel">
+            <a href="#features" data-i18n="navFeatures">Features</a>
+            <a href="#platforms" data-i18n="navPlatforms">Platforms</a>
+            <a href="#download" data-i18n="navDownload">Download</a>
+            <button
+              class="lang-toggle"
+              id="lang-toggle"
+              type="button"
+              data-i18n="langToggle"
+              data-i18n-aria-label="langToggleAriaLabel"
+            >
+              中文
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="shell hero-card">
+            <div class="hero-copy">
+              <span class="eyebrow" data-i18n="eyebrow">Time Machine / My Days</span>
+              <h1 data-i18n-html="heroTitle">Keep your most<br />important days in sight</h1>
+              <p data-i18n="heroDescription">
+                Anniversaries, countdowns, lunar and solar birthdays, home screen widgets, and reminders, all arranged in one light and clear interface. Whether you are on iPhone or Android, it stays quick to check, quick to record, and easy to keep using.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#download" data-i18n="heroPrimaryCta">Download Now</a>
+                <a class="btn btn-secondary" href="#features" data-i18n="heroSecondaryCta">See Features</a>
+              </div>
+              <div class="hero-meta" data-i18n-aria-label="heroMetaAriaLabel">
+                <div class="meta-card">
+                  <span class="meta-value">Birthday</span>
+                  <span class="meta-label" data-i18n="metaBirthday">Track birthdays, anniversaries, and repeating important dates.</span>
+                </div>
+                <div class="meta-card">
+                  <span class="meta-value">Countdown</span>
+                  <span class="meta-label" data-i18n="metaCountdown">See days remaining or days passed at a glance.</span>
+                </div>
+                <div class="meta-card">
+                  <span class="meta-value">Widgets</span>
+                  <span class="meta-label" data-i18n="metaWidgets">Widgets and reminder alerts keep important moments visible.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="glow-ring"></div>
+              <div class="phone">
+                <div class="phone-screen">
+                  <img src="images/pic01.jpg" alt="" />
+                  <div class="screen-overlay">
+                    <div class="screen-pill">
+                      <strong>Time Machine</strong>
+                      <span data-i18n="screenPillOne">Track the days that matter to you</span>
+                    </div>
+                    <div class="screen-pill">
+                      <strong data-i18n="screenPillTwoTitle">Anniversaries / Countdowns</strong>
+                      <span data-i18n="screenPillTwoBody">Important dates across the year, visible in one glance</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="float-card float-top">
+                <strong data-i18n="floatTopTitle">12 days left</strong>
+                <span data-i18n="floatTopBody">Mom's birthday</span>
+              </div>
+              <div class="float-card float-left">
+                <strong data-i18n="floatLeftTitle">286 days passed</strong>
+                <span data-i18n="floatLeftBody">A new beginning</span>
+              </div>
+              <div class="float-card float-bottom">
+                <strong data-i18n="floatBottomTitle">Home screen widgets</strong>
+                <span data-i18n="floatBottomBody">See what matters without opening the app</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="feature-band">
+          <div class="shell feature-band-grid">
+            <article class="band-item">
+              <strong data-i18n="bandOneTitle">Quick setup</strong>
+              <span data-i18n="bandOneBody">Add a name or event and finish the record in just a few steps.</span>
+            </article>
+            <article class="band-item">
+              <strong data-i18n="bandTwoTitle">Lunar and solar birthdays</strong>
+              <span data-i18n="bandTwoBody">Built for common birthday scenarios without extra date conversion.</span>
+            </article>
+            <article class="band-item">
+              <strong data-i18n="bandThreeTitle">Anniversaries and countdowns</strong>
+              <span data-i18n="bandThreeBody">Clearly show how many days are left or how long it has been.</span>
+            </article>
+            <article class="band-item">
+              <strong data-i18n="bandFourTitle">Reminder alerts</strong>
+              <span data-i18n="bandFourBody">Bring important moments back to your home screen and daily flow.</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="features">
+          <div class="shell section-card">
+            <div class="section-head">
+              <span class="section-kicker" data-i18n="featuresKicker">Features</span>
+              <h2 data-i18n="featuresTitle">More than date tracking. It keeps important moments easier to notice.</h2>
+              <p data-i18n="featuresDescription">
+                Built around real usage, this page highlights the core app experience: anniversaries, countdowns, birthdays, widgets, and reminders. The layout is tuned for mobile first so it is easier to browse and tap on phones.
+              </p>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <span class="feature-icon">01</span>
+                <h3 data-i18n="featureOneTitle">Birthdays and anniversaries</h3>
+                <p data-i18n="featureOneBody">
+                  Enter a month and day once, then let the app calculate yearly important dates for birthdays, anniversaries, and other repeating moments.
+                </p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-icon">02</span>
+                <h3 data-i18n="featureTwoTitle">Countdowns and days passed</h3>
+                <p data-i18n="featureTwoBody">
+                  Count down to future dates or look back on past milestones without doing any manual math.
+                </p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-icon">03</span>
+                <h3 data-i18n="featureThreeTitle">Home screen widgets</h3>
+                <p data-i18n="featureThreeBody">
+                  Pin the dates you care about right on the home screen. Both iOS and Android are presented with widget-friendly entry points.
+                </p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-icon">04</span>
+                <h3 data-i18n="featureFourTitle">Reminder notifications</h3>
+                <p data-i18n="featureFourBody">
+                  Pair daily reminders with key milestone alerts so important dates stay active instead of getting forgotten after setup.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="platforms">
+          <div class="shell section-card">
+            <div class="section-head">
+              <span class="section-kicker" data-i18n="platformsKicker">Mobile First</span>
+              <h2 data-i18n="platformsTitle">A landing page reorganized for both iOS and Android</h2>
+              <p data-i18n="platformsDescription">
+                The page now uses safe-area spacing, larger tap targets, a mobile-first single-column flow, and official store badges to avoid cramped layouts and unclear hierarchy on phones.
+              </p>
+            </div>
+            <div class="compat-grid">
+              <div class="compat-panel compat-list">
+                <div class="compat-item">
+                  <strong data-i18n="iosTitle">iOS fit</strong>
+                  <span data-i18n="iosBody">
+                    Safe-area spacing keeps the top bar and footer content away from the notch and Home Indicator.
+                  </span>
+                </div>
+                <div class="compat-item">
+                  <strong data-i18n="androidTitle">Android fit</strong>
+                  <span data-i18n="androidBody">
+                    Download entry points now use the official Google Play badge, with touch targets and spacing that work better on Android devices.
+                  </span>
+                </div>
+              </div>
+              <div class="compat-panel compat-list">
+                <div class="compat-item">
+                  <strong data-i18n="visualTitle">Visual direction</strong>
+                  <span data-i18n="visualBody">
+                    The page keeps the app icon's deep dark base and warm gold-orange palette, then adds lighter glass panels and gradients for a more polished feel.
+                  </span>
+                </div>
+                <div class="compat-item">
+                  <strong data-i18n="distributionTitle">Cleaner distribution</strong>
+                  <span data-i18n="distributionBody">
+                    The page now keeps only the official App Store and Google Play entries, removing the direct APK path.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="download">
+          <div class="shell section-card">
+            <div class="section-head">
+              <span class="section-kicker" data-i18n="downloadKicker">Download</span>
+              <h2 data-i18n="downloadTitle">Choose your device and get started</h2>
+              <p data-i18n="downloadDescription">
+                Download through the official store channels. This page now keeps only App Store and Google Play as the formal distribution paths, with no APK download.
+              </p>
+            </div>
+            <div class="download-grid">
+              <article class="store-card">
+                <div>
+                  <span class="platform-chip">iOS</span>
+                  <h3 data-i18n="storeIosTitle">iPhone / iPad</h3>
+                  <p data-i18n="storeIosBody">
+                    Download from the App Store for a smoother iOS experience with widgets, reminders, and tighter system integration.
+                  </p>
+                </div>
+                <a
+                  class="store-badge"
+                  href="https://apps.apple.com/cn/app/%E6%97%B6%E9%97%B4%E6%9C%BA%E5%99%A8pro/id1502507360"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-i18n-aria-label="appStoreAriaLabel"
+                >
+                  <img
+                    src="assets/store-badges/app-store-badge.svg"
+                    data-i18n-alt="appStoreAlt"
+                    alt="Download on the App Store"
+                  />
+                </a>
+              </article>
+
+              <article class="store-card">
+                <div>
+                  <span class="platform-chip">Android</span>
+                  <h3 data-i18n="storeAndroidTitle">Android phone</h3>
+                  <p data-i18n="storeAndroidBody">
+                    Get it on Google Play for a cleaner Android installation and update experience.
+                  </p>
+                </div>
+                <a
+                  class="store-badge"
+                  href="https://play.google.com/store/apps/details?id=com.abouttime.timemachine"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-i18n-aria-label="playStoreAriaLabel"
+                >
+                  <img
+                    src="assets/store-badges/google-play-badge.svg"
+                    data-i18n-alt="playStoreAlt"
+                    alt="Get it on Google Play"
+                  />
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="shell footer-card">
+          <div data-i18n="footerCopyright">© Time Machine / My Days</div>
+          <a class="footer-email" href="mailto:zbcdady@gmail.com">
+            zbcdady@gmail.com
+          </a>
+        </div>
+      </footer>
+    </div>
+    <script>
+      (function () {
+        var translations = {
+          en: {
+            pageTitle: "Time Machine | My Days",
+            metaDescription:
+              "Time Machine / My Days - anniversaries, countdowns, birthdays, widgets, and reminders that keep your most important days in sight.",
+            brandAriaLabel: "Time Machine home",
+            brandIconAlt: "Time Machine app icon",
+            brandSubtitle: "My Days / important day tracker",
+            navAriaLabel: "Page navigation",
+            navFeatures: "Features",
+            navPlatforms: "Platforms",
+            navDownload: "Download",
+            langToggle: "中文",
+            langToggleAriaLabel: "Switch language to Chinese",
+            eyebrow: "Time Machine / My Days",
+            heroTitle: "Keep your most<br />important days in sight",
+            heroDescription:
+              "Anniversaries, countdowns, lunar and solar birthdays, home screen widgets, and reminders, all arranged in one light and clear interface. Whether you are on iPhone or Android, it stays quick to check, quick to record, and easy to keep using.",
+            heroPrimaryCta: "Download Now",
+            heroSecondaryCta: "See Features",
+            heroMetaAriaLabel: "Core capabilities",
+            metaBirthday:
+              "Track birthdays, anniversaries, and repeating important dates.",
+            metaCountdown:
+              "See days remaining or days passed at a glance.",
+            metaWidgets:
+              "Widgets and reminder alerts keep important moments visible.",
+            screenPillOne: "Track the days that matter to you",
+            screenPillTwoTitle: "Anniversaries / Countdowns",
+            screenPillTwoBody:
+              "Important dates across the year, visible in one glance",
+            floatTopTitle: "12 days left",
+            floatTopBody: "Mom's birthday",
+            floatLeftTitle: "286 days passed",
+            floatLeftBody: "A new beginning",
+            floatBottomTitle: "Home screen widgets",
+            floatBottomBody: "See what matters without opening the app",
+            bandOneTitle: "Quick setup",
+            bandOneBody:
+              "Add a name or event and finish the record in just a few steps.",
+            bandTwoTitle: "Lunar and solar birthdays",
+            bandTwoBody:
+              "Built for common birthday scenarios without extra date conversion.",
+            bandThreeTitle: "Anniversaries and countdowns",
+            bandThreeBody:
+              "Clearly show how many days are left or how long it has been.",
+            bandFourTitle: "Reminder alerts",
+            bandFourBody:
+              "Bring important moments back to your home screen and daily flow.",
+            featuresKicker: "Features",
+            featuresTitle:
+              "More than date tracking. It keeps important moments easier to notice.",
+            featuresDescription:
+              "Built around real usage, this page highlights the core app experience: anniversaries, countdowns, birthdays, widgets, and reminders. The layout is tuned for mobile first so it is easier to browse and tap on phones.",
+            featureOneTitle: "Birthdays and anniversaries",
+            featureOneBody:
+              "Enter a month and day once, then let the app calculate yearly important dates for birthdays, anniversaries, and other repeating moments.",
+            featureTwoTitle: "Countdowns and days passed",
+            featureTwoBody:
+              "Count down to future dates or look back on past milestones without doing any manual math.",
+            featureThreeTitle: "Home screen widgets",
+            featureThreeBody:
+              "Pin the dates you care about right on the home screen. Both iOS and Android are presented with widget-friendly entry points.",
+            featureFourTitle: "Reminder notifications",
+            featureFourBody:
+              "Pair daily reminders with key milestone alerts so important dates stay active instead of getting forgotten after setup.",
+            platformsKicker: "Mobile First",
+            platformsTitle: "A landing page reorganized for both iOS and Android",
+            platformsDescription:
+              "The page now uses safe-area spacing, larger tap targets, a mobile-first single-column flow, and official store badges to avoid cramped layouts and unclear hierarchy on phones.",
+            iosTitle: "iOS fit",
+            iosBody:
+              "Safe-area spacing keeps the top bar and footer content away from the notch and Home Indicator.",
+            androidTitle: "Android fit",
+            androidBody:
+              "Download entry points now use the official Google Play badge, with touch targets and spacing that work better on Android devices.",
+            visualTitle: "Visual direction",
+            visualBody:
+              "The page keeps the app icon's deep dark base and warm gold-orange palette, then adds lighter glass panels and gradients for a more polished feel.",
+            distributionTitle: "Cleaner distribution",
+            distributionBody:
+              "The page now keeps only the official App Store and Google Play entries, removing the direct APK path.",
+            downloadKicker: "Download",
+            downloadTitle: "Choose your device and get started",
+            downloadDescription:
+              "Download through the official store channels. This page now keeps only App Store and Google Play as the formal distribution paths, with no APK download.",
+            storeIosTitle: "iPhone / iPad",
+            storeIosBody:
+              "Download from the App Store for a smoother iOS experience with widgets, reminders, and tighter system integration.",
+            appStoreAriaLabel: "Download Time Machine on the App Store",
+            appStoreAlt: "Download on the App Store",
+            storeAndroidTitle: "Android phone",
+            storeAndroidBody:
+              "Get it on Google Play for a cleaner Android installation and update experience.",
+            playStoreAriaLabel: "Download Time Machine on Google Play",
+            playStoreAlt: "Get it on Google Play",
+            footerCopyright: "© Time Machine / My Days"
+          },
+          zh: {
+            pageTitle: "Time Machine | My Days",
+            metaDescription:
+              "Time Machine / My Days - 纪念日、倒数日、生日、小组件与提醒通知，帮助你把重要日子放回眼前。",
+            brandAriaLabel: "Time Machine 首页",
+            brandIconAlt: "Time Machine 图标",
+            brandSubtitle: "My Days / 重要日子记录",
+            navAriaLabel: "页面导航",
+            navFeatures: "功能亮点",
+            navPlatforms: "平台体验",
+            navDownload: "下载",
+            langToggle: "EN",
+            langToggleAriaLabel: "切换到英文",
+            eyebrow: "Time Machine / My Days",
+            heroTitle: "把重要的日子<br />放回眼前",
+            heroDescription:
+              "纪念日、倒数日、农历与公历生日、桌面小组件、每日提醒，都整理在一个轻巧清晰的界面里。无论是 iPhone 还是 Android，都能快速查看、快速记录、长期使用。",
+            heroPrimaryCta: "立即下载",
+            heroSecondaryCta: "查看亮点",
+            heroMetaAriaLabel: "核心能力",
+            metaBirthday: "支持生日、纪念日与重复日期管理",
+            metaCountdown: "倒数日与已过天数，一眼就能看到",
+            metaWidgets: "桌面小组件与提醒通知，重要事项不再错过",
+            screenPillOne: "记录你在意的日子",
+            screenPillTwoTitle: "纪念日 / 倒数日",
+            screenPillTwoBody: "全年重要日期，一目了然",
+            floatTopTitle: "还有 12 天",
+            floatTopBody: "妈妈生日",
+            floatLeftTitle: "已过 286 天",
+            floatLeftBody: "新的开始",
+            floatBottomTitle: "桌面小组件",
+            floatBottomBody: "无需打开 App 也能看到",
+            bandOneTitle: "极速创建",
+            bandOneBody: "输入人名或事件，几步就能完成记录。",
+            bandTwoTitle: "农历与公历生日",
+            bandTwoBody: "常见生日场景直接支持，不需要额外换算。",
+            bandThreeTitle: "纪念日与倒数日",
+            bandThreeBody: "清楚展示还有多少天，或已经过去多久。",
+            bandFourTitle: "提醒通知",
+            bandFourBody: "把重要节点放回手机桌面和日常提醒里。",
+            featuresKicker: "功能",
+            featuresTitle: "不是简单记日期，而是让重要事项更容易被看见",
+            featuresDescription:
+              "围绕真实使用场景，这个页面重点展示了 App 的主能力：纪念日、倒数日、生日、小组件和提醒。信息结构按移动端优先调整，手机上更容易浏览和点击。",
+            featureOneTitle: "生日与纪念日",
+            featureOneBody:
+              "输入月份和日期即可自动计算每年的重要日子，适合生日、纪念日和长期重复事件管理。",
+            featureTwoTitle: "倒数日与已过天数",
+            featureTwoBody:
+              "对未来日期做倒数，对过去日期看已过天数，让时间感更直接，不需要自己换算。",
+            featureThreeTitle: "桌面小组件",
+            featureThreeBody:
+              "把最在意的事项固定在桌面上。iOS 和 Android 都围绕小组件使用场景做了更友好的入口展示。",
+            featureFourTitle: "提醒通知",
+            featureFourBody:
+              "每日提醒与关键时间节点通知配合使用，减少“记得设置了却没再看”的情况。",
+            platformsKicker: "移动优先",
+            platformsTitle: "为 iOS 和 Android 重排后的页面体验",
+            platformsDescription:
+              "页面使用安全区适配、较大的点击区域、单列优先布局和官方商店 badge，避免旧版桌面模板在手机上出现挤压、按钮过小或视觉层级不清的问题。",
+            iosTitle: "iOS 适配",
+            iosBody:
+              "支持安全区留白，顶部导航和底部内容不会贴住刘海或 Home Indicator。",
+            androidTitle: "Android 适配",
+            androidBody:
+              "下载按钮改用 Google Play 官方 badge，触控目标尺寸和分区间距更适合 Android 设备浏览。",
+            visualTitle: "视觉风格",
+            visualBody:
+              "延续 App 图标的深色与金橙色调，用更轻的玻璃面板和渐变背景做出更精致的落地页层次。",
+            distributionTitle: "下载路径更清晰",
+            distributionBody:
+              "保留 App Store 与 Google Play 两个正式入口，移除 APK 直链，减少分发路径混乱。",
+            downloadKicker: "下载",
+            downloadTitle: "选择你的设备开始使用",
+            downloadDescription:
+              "使用官方商店入口下载。页面只保留 App Store 与 Google Play 两个正式下载渠道，不再提供 APK 下载。",
+            storeIosTitle: "iPhone / iPad",
+            storeIosBody:
+              "通过 App Store 获取，适合希望使用桌面小组件、提醒和流畅系统集成体验的用户。",
+            appStoreAriaLabel: "在 App Store 下载 Time Machine",
+            appStoreAlt: "在 App Store 下载",
+            storeAndroidTitle: "Android 手机",
+            storeAndroidBody:
+              "通过 Google Play 下载，获得更统一的 Android 安装和更新体验。",
+            playStoreAriaLabel: "在 Google Play 下载 Time Machine",
+            playStoreAlt: "在 Google Play 获取",
+            footerCopyright: "© Time Machine / My Days"
+          }
+        };
+
+        var storageKey = "time-machine-lang";
+        var html = document.documentElement;
+        var titleNode = document.querySelector("title");
+        var metaDescriptionNode = document.getElementById("meta-description");
+        var toggle = document.getElementById("lang-toggle");
+
+        function preferredLang() {
+          var savedLang = null;
+          try {
+            savedLang = window.localStorage.getItem(storageKey);
+          } catch (error) {}
+
+          if (savedLang === "zh" || savedLang === "en") {
+            return savedLang;
+          }
+
+          return (navigator.language || "").toLowerCase().indexOf("zh") === 0
+            ? "zh"
+            : "en";
+        }
+
+        function applyLang(lang) {
+          var locale = translations[lang] ? lang : "en";
+          var copy = translations[locale];
+
+          html.lang = locale === "zh" ? "zh-CN" : "en";
+
+          if (titleNode) {
+            titleNode.textContent = copy.pageTitle;
+          }
+
+          if (metaDescriptionNode) {
+            metaDescriptionNode.setAttribute("content", copy.metaDescription);
+          }
+
+          document.querySelectorAll("[data-i18n]").forEach(function (node) {
+            var key = node.getAttribute("data-i18n");
+            if (copy[key]) {
+              node.textContent = copy[key];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-html]").forEach(function (node) {
+            var key = node.getAttribute("data-i18n-html");
+            if (copy[key]) {
+              node.innerHTML = copy[key];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-alt]").forEach(function (node) {
+            var key = node.getAttribute("data-i18n-alt");
+            if (copy[key]) {
+              node.setAttribute("alt", copy[key]);
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-aria-label]").forEach(function (node) {
+            var key = node.getAttribute("data-i18n-aria-label");
+            if (copy[key]) {
+              node.setAttribute("aria-label", copy[key]);
+            }
+          });
+
+          try {
+            window.localStorage.setItem(storageKey, locale);
+          } catch (error) {}
+        }
+
+        applyLang(preferredLang());
+
+        if (toggle) {
+          toggle.addEventListener("click", function () {
+            applyLang(html.lang.indexOf("zh") === 0 ? "en" : "zh");
+          });
+        }
+
+        document.body.classList.add("i18n-ready");
+      })();
+    </script>
+  </body>
 </html>
