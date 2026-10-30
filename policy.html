@@ -12,6 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="应用用户协议与隐私政策，说明服务规则、用户责任、个人信息保护及权利行使方式。" />
     <style>
+        [hidden] { display: none !important; }
+        .language-switch { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 20px; }
+        .language-switch button { font: inherit; cursor: pointer; padding: 6px 14px; border: 1px solid #cbd5e1; border-radius: 6px; background: #fff; color: #242933; }
+        .language-switch button[aria-pressed="true"] { background: #2459a6; color: #fff; border-color: #2459a6; }
+        .language-switch button:focus-visible { outline: 2px solid #2459a6; outline-offset: 3px; }
         * { box-sizing: border-box; }
         html { color-scheme: light; scroll-padding-top: 24px; }
         body { margin: 0; background: #f7f8fa; color: #242933; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
@@ -44,6 +49,8 @@
 </head>
 <body>
 <main id="header">
+<div class="language-switch" role="group" aria-label="Language / 语言"><button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="en" aria-pressed="false">English</button></div>
+<div id="policy-zh" lang="zh-CN">
     <header class="inner">
         <h1>用户协议与隐私政策</h1>
         <p class="meta">版本：1.0 · 更新日期：2024年10月10日 · 生效日期：2024年10月10日</p>
@@ -218,6 +225,229 @@
         <p>请提供问题描述及必要的核验信息，避免在反馈中发送密码、验证码或与处理问题无关的敏感资料。我们将按第十一条约定及适用法律及时受理。</p>
     </section>
     <footer>本协议中涉及特定功能的条款，仅在本应用实际提供该功能时适用；任何条款均不减损您依法享有的权利。</footer>
+
+    <section id="android-background">
+        <h2>Android 提醒与桌面组件的后台运行说明</h2>
+        <p>当您设置服药提醒后，Android 可在排程时间唤起拾刻后台进程以显示提醒。当您添加桌面组件后，系统可为组件更新唤起后台进程；组件定期联网刷新间隔为 30 分钟，内容变化时也会刷新。上述操作用于您主动设置的提醒和组件。</p>
+        <p>“设置—通知设置—允许系统事件恢复提醒与组件”为独立可选开关，默认关闭。仅在您明确开启且存在需恢复的提醒或已添加组件后，拾刻才接收设备开机完成、应用更新、系统时间或时区变化以及精确闹钟权限变更事件，以恢复提醒和组件。不打开应用界面，不通过这些事件启动其他应用。您可随时关闭；关闭不影响正常使用及已排程提醒，但设备重启后需再次打开拾刻才能恢复提醒与组件刷新。旧版本用户亦需主动开启，不沿用隐私政策或推送授权作为该项同意。</p>
+    </section>
+</div>
+<div id="policy-en" lang="en" hidden>
+    <header class="inner">
+        <h1>Terms of Use and Privacy Policy</h1>
+        <p class="meta">Version: 1.0 · Last updated: October 10, 2024 · Effective: October 10, 2024</p>
+        <p>This document applies to the application displaying or referring to it and its related services (the “App”). The App’s developer or actual operator is the service provider (“we”, “us” or “our”), as identified in the App, its official distribution page or its app store listing. This document contains the Terms of Use and Privacy Policy.</p>
+        <div class="notice">
+            <p><strong>Please read carefully before use, especially the highlighted terms on payments, enforcement, liability and personal information. For questions, contact us through Section 15.</strong></p>
+            <p><strong>You may use the relevant services after expressly accepting the Terms of Use. Acceptance does not constitute consent to every processing activity. Where consent, separate consent or guardian consent is required, we will obtain it separately as required by law.</strong></p>
+        </div>
+    </header>
+
+    <nav aria-label="Table of contents">
+        <ol>
+            <li><a href="#en-scope">Scope and Acceptance</a></li>
+            <li><a href="#en-service">Services and License</a></li>
+            <li><a href="#en-account">Accounts and Security</a></li>
+            <li><a href="#en-conduct">Acceptable Use</a></li>
+            <li><a href="#en-content">Content and Intellectual Property</a></li>
+            <li><a href="#en-payment">Payments, Subscriptions and Refunds</a></li>
+            <li><a href="#en-enforcement">Enforcement and Termination</a></li>
+            <li><a href="#en-collection">Personal Information and Permissions</a></li>
+            <li><a href="#en-sharing">Third Parties and Disclosure</a></li>
+            <li><a href="#en-security">Storage, Security and Deletion</a></li>
+            <li><a href="#en-rights">Your Privacy Rights</a></li>
+            <li><a href="#en-minors">Protection of Minors</a></li>
+            <li><a href="#en-liability">Service Risks and Liability</a></li>
+            <li><a href="#en-changes">Changes and Disputes</a></li>
+            <li><a href="#en-contact">Contact Us</a></li>
+        </ol>
+    </nav>
+
+    <section id="en-scope">
+        <h2>1. Scope and Acceptance</h2>
+        <p>1.1 These Terms govern our respective rights and obligations regarding downloading, installing, accessing and using the App’s actual features. Provisions concerning accounts, payments, publishing or cloud storage apply only where the App offers those features.</p>
+        <p>1.2 You must have the legal capacity appropriate to the services used. Minors should read these Terms and use the App under guardian guidance and obtain guardian consent beforehand where required.</p>
+        <p>1.3 Specific features may have additional rules presented before use. Material terms will be highlighted and confirmation obtained where required. Additional rules cannot diminish statutory user rights. Personal information processing is governed by this Privacy Policy and lawful notices for the relevant activity.</p>
+    </section>
+
+    <section id="en-service">
+        <h2>2. Services and License</h2>
+        <p>2.1 The App provides the tools, content or related services shown within it. Features, conditions, compatibility and scope depend on the actual version and pre-use explanations. Features not expressly promised are not service commitments.</p>
+        <p>2.2 Subject to these Terms, we grant you a limited, non-exclusive, non-transferable license to use the App as instructed on devices you lawfully possess or may use. Without written authorization, you may not resell, rent or offer the App as your own service.</p>
+        <p>2.3 Obtain the App through official or authorized channels. You bear your equipment, network and communication costs. Compatibility, security or maintenance updates may affect older versions. Changes affecting purchased entitlements or major features will be explained in advance, with reasonable arrangements as required by law.</p>
+    </section>
+
+    <section id="en-account">
+        <h2>3. Accounts and Security</h2>
+        <p>3.1 Where accounts are available, provide truthful, lawful, accurate and necessary information and keep it current. Do not impersonate others, maliciously register accounts in bulk, unlawfully trade or rent accounts, or evade legally required identity checks.</p>
+        <p>3.2 Safeguard your account, password, verification codes and devices. Do not share authentication credentials. Report suspicious access, theft or security issues promptly through official channels and take protective measures such as changing your password.</p>
+        <p><strong>3.3 Based on reasonable evidence of risk, we may require necessary identity checks, restrict abnormal operations or temporarily freeze relevant features. We will explain where possible and provide an appeal process. Account activity does not automatically make you fully liable; responsibility depends on fault, evidence and applicable law.</strong></p>
+    </section>
+
+    <section id="en-conduct">
+        <h2>4. Acceptable Use</h2>
+        <p>4.1 Use the App lawfully and in good faith. You are responsible for your actions, submissions and authorizations and must respect our rights and those of users and third parties.</p>
+        <p><strong>4.2 Without lawful authorization or legal permission, you must not do, or assist others to do, any of the following:</strong></p>
+        <ul>
+            <li>Create, upload or distribute prohibited content, or engage in fraud, gambling, harassment, threats, defamation, discrimination or other unlawful activities;</li>
+            <li>Infringe copyright, trademarks, trade secrets, privacy or personal information rights; impersonate others or provide false or misleading information;</li>
+            <li>Distribute malicious code, attack or disrupt devices, servers, networks or services, or bypass access controls or security measures;</li>
+            <li>Use scripts, crawlers, plug-ins or simulated requests for malicious bulk access, scraping non-public data, manipulating traffic or consuming resources substantially beyond normal use;</li>
+            <li>Crack licenses, bypass payment restrictions, forge orders, receipts or eligibility, abuse refunds or promotions, or obtain improper benefits;</li>
+            <li>Modify, copy, reverse engineer, decompile or distribute the App’s software or protected content without authorization, except as expressly permitted by law;</li>
+            <li>Send spam or unauthorized promotions, or unlawfully collect, trade or disclose others’ information through the App;</li>
+            <li>Exploit vulnerabilities or rule defects for improper gain, conceal or spread vulnerabilities usable for attacks, or evade reasonable restrictions already imposed.</li>
+        </ul>
+        <p>4.3 Report security vulnerabilities or suspected infringement or unlawful content through official channels and avoid increasing their impact.</p>
+    </section>
+
+    <section id="en-content">
+        <h2>5. Content and Intellectual Property</h2>
+        <p>5.1 Rights in the App’s software, interfaces, marks and content we provide belong to us or the relevant rights holders. Unless authorized or permitted by law, you may not copy, modify, distribute or commercially exploit them.</p>
+        <p>5.2 Rights in text, images, audio, video and other content you submit remain with you or the original rights holder. Ensure you may submit and authorize necessary processing. Do not upload others’ confidential material or personal information you have no right to process.</p>
+        <p><strong>5.3 You authorize processing of your content only to the extent and for the period necessary to deliver your selected storage, display, synchronization, sharing or other feature. This does not transfer ownership or automatically authorize advertising, sale, model training or other additional uses of non-public content. Processing of personal information must also comply with this Privacy Policy.</strong></p>
+        <p>5.4 Recipients may retain or redistribute content you publish or share. Choose your audience carefully; withdrawing a share generally cannot automatically delete copies lawfully obtained by third parties. We will investigate reasonable infringement complaints and take necessary measures according to law.</p>
+    </section>
+
+    <section id="en-payment">
+        <h2>6. Payments, Subscriptions and Refunds</h2>
+        <p>6.1 Where paid features are offered, we will explain prices, entitlements, duration, limitations and refund rules before purchase. Pay agreed charges after confirming a purchase. Using free features alone does not create unconfirmed charges.</p>
+        <p><strong>6.2 Automatic renewal requires your express choice. We will prominently disclose the billing cycle, price, cancellation method and effective timing, and provide legally required renewal reminders. Cancel through the purchase channel or the entry provided in the App. Cancellation generally affects future charges; current paid entitlements and refunds follow the purchase terms and applicable law.</strong></p>
+        <p>6.3 Payments and refunds for app store or third-party purchases may need to be handled through that channel. Its rules cannot exclude statutory rights. Report erroneous or duplicate charges or undelivered entitlements through Section 15; we will investigate and handle them according to law.</p>
+        <p>6.4 Price or entitlement changes will be notified in advance and will not retroactively impair valid purchased entitlements. Future renewal changes will receive legally required reminders and cancellation options.</p>
+    </section>
+
+    <section id="en-enforcement">
+        <h2>7. Enforcement and Termination</h2>
+        <p><strong>7.1 Where reasonable evidence indicates unlawful conduct, infringement, breach or a service security risk, we may issue warnings, require correction, restrict operations, remove offending content, or suspend or terminate relevant services in proportion to the conduct and impact. Necessary emergency measures may precede notice in serious security incidents, ongoing harm or legally required situations.</strong></p>
+        <p>7.2 Unless prohibited by law or detrimental to security response, we will explain our reasons and provide an appeal channel. You may submit evidence for review. Measures must be proportionate; you will not be penalized solely for complaining or lawfully exercising privacy rights.</p>
+        <p>7.3 If unlawful conduct or breach causes loss to us or third parties, you bear liability according to law, including substantiated, reasonable and necessary enforcement costs. Recovery depends on actual responsibility and loss, not an unlimited indemnity.</p>
+        <p>7.4 If business changes require closure, we will give reasonable advance notice and lawfully arrange purchased entitlements, data export and deletion. You may stop using the App or request account deletion. Legally retained data is handled under Section 10.</p>
+    </section>
+
+    <section id="en-collection">
+        <h2>8. Personal Information and Permissions</h2>
+        <p><strong>8.1 We process only personal information necessary for specific features, with a lawful basis and in accordance with lawfulness, fairness, necessity and transparency. These Terms are not blanket authorization to collect all device information, read all local content or obtain all permissions.</strong></p>
+        <p>8.2 Depending on features you actually use, we process the following information where necessary. Listing a category does not authorize collection for features unavailable or unused:</p>
+        <ul>
+            <li><strong>Account and identity information: Where registration, login or verification is offered, contact details, account identifiers, authentication materials and login status you provide support account creation, verification and security. Legally required real-name checks will be explained beforehand.</strong></li>
+            <li><strong>Content you provide: Where editing, uploading, syncing, publishing or feedback is offered, your submitted text, images, recordings, files and feedback are processed to perform your selected operation. This provision does not authorize uploading content that only needs local processing.</strong></li>
+            <li><strong>Operation and security information: For online services, diagnostics or security, device and system versions, App version, network status, IP address, operation records and error logs may be processed within the necessary, previously disclosed scope for operation, compatibility, troubleshooting and abuse prevention, not unrelated purposes.</strong></li>
+            <li><strong>Transaction and service records: Where paid features are offered, order identifiers, purchased items, time, amount and payment status support delivery, reconciliation, after-sales handling and statutory retention. Payment credentials such as payment passwords are handled by the payment provider under its rules.</strong></li>
+        </ul>
+        <p>Specific fields, collection timing, processing methods, retention and consequences of refusal will be disclosed on relevant feature pages, privacy notices or pre-use prompts. This section neither replaces required specific notices nor authorizes undisclosed processing.</p>
+        <p>8.3 Permissions are requested only when a relevant feature actually needs them, with purposes explained beforehand. Common permissions and uses follow; permissions are not requested for unavailable features:</p>
+        <ul>
+            <li>Camera: Taking pictures, scanning or uploading imagery at your request;</li>
+            <li>Microphone: Recording, voice input or audio/video communication at your request;</li>
+            <li>Photos, media or files: Selecting, importing, saving or sharing content, without blanket access to all local material;</li>
+            <li>Location: Selected positioning or location-based services; precise or background access requires a separate necessity explanation and lawful authorization;</li>
+            <li>Contacts, calendar and similar permissions: Only selected actions such as importing contacts or creating events, without unrelated access;</li>
+            <li>Notifications: Reminders you select or relevant service messages, managed in system settings.</li>
+        </ul>
+        <p><strong>8.4 Manage permissions in system settings or available in-App controls. Refusing unnecessary permissions or withdrawing consent to optional processing does not affect unrelated features. Refusing information essential to a selected service may prevent that service alone. System permission does not replace legally required processing consent.</strong></p>
+        <p>8.5 For sensitive personal information, we will explain the specific purpose, sufficient necessity and effects on your rights, apply strict safeguards and obtain separate consent or other required authorization. Changes to consent-based purposes, methods or information categories require renewed consent.</p>
+        <p>8.6 Where personalized recommendations, marketing or automated decisions are used, we will explain the processing and lawfully offer ways to disable personalization, reject marketing or request explanations. Unnecessary marketing is not a condition for basic services.</p>
+    </section>
+
+    <section id="en-sharing">
+        <h2>9. Third Parties and Disclosure</h2>
+        <p>9.1 We do not unlawfully trade personal information. For entrusted processing, we agree on purposes, duration, scope and safeguards and supervise compliance. Integrating third-party services does not remove our statutory responsibilities.</p>
+        <p>9.2 If third-party login, payments, analytics, advertising, cloud services or SDKs are used, we will disclose the provider’s identity, contact details, purposes, information categories, methods and privacy policy in third-party notices or before using the feature. Required consent precedes processing. Acceptance of these Terms does not authorize all third-party collection.</p>
+        <p>9.3 Disclosure to other independent processors or public disclosure requires legally applicable notice, separate consent and other procedures; statutory exceptions apply. A confidentiality promise or commercial interest alone does not justify arbitrary disclosure.</p>
+        <p>9.4 For transfers due to merger, division, dissolution or bankruptcy, we will notify you of the recipient’s name and contact details and require continued protection. Changes to original purposes or methods require renewed consent as prescribed by law.</p>
+        <p>9.5 For disclosures required by law or lawful requests from competent authorities, we verify the basis and limit disclosure to what is necessary.</p>
+    </section>
+
+    <section id="en-security">
+        <h2>10. Storage, Security and Deletion</h2>
+        <p>10.1 Depending on the feature, data may be processed locally or sent, after notice, to servers needed for the service. Relevant notices will identify actual storage locations. These Terms alone do not authorize cross-border transfers. Before such transfers, we will disclose the overseas recipient, purposes, methods, categories and rights channels, and fulfill applicable transfer procedures and separate-consent requirements.</p>
+        <p>10.2 Unless otherwise required by law, we retain personal information only for the shortest necessary period. Specific periods or criteria are disclosed for relevant processing. On expiry or when the purpose is fulfilled or no longer necessary, information is lawfully deleted or anonymized. De-identification is not anonymization.</p>
+        <p>10.3 We apply risk-appropriate access controls, transmission and storage protection and permission management against unauthorized access, disclosure, alteration or loss. Actual or potential incidents receive timely remedial action, with reports to authorities and notifications to affected users as required by law.</p>
+        <p>10.4 Following account deletion, consent withdrawal or closure, information is handled according to law. Where statutory retention or technical limitations temporarily prevent deletion, processing is restricted to storage and necessary security protection until deletion becomes possible.</p>
+        <p>10.5 Uninstalling, clearing data or device failure may destroy locally stored content. Use available backup or export tools before important actions. Where cloud sync is offered, its scope and processing rules will be separately explained.</p>
+    </section>
+
+    <section id="en-rights">
+        <h2>11. Your Privacy Rights</h2>
+        <p>11.1 Subject to law, you may be informed of and decide on processing, restrict or refuse it, access, copy, correct, supplement or delete information, withdraw consent, delete accounts and request explanations of processing rules. Portability may be requested where applicable conditions are met.</p>
+        <p>11.2 Use available account management, privacy settings or feature controls for self-service requests, or contact us through Section 15. Account deletion provisions do not apply where no accounts exist; other rights remain available. Necessary identity checks may prevent impersonation, but unrelated extra information will not be required.</p>
+        <p>11.3 We generally respond or explain progress within fifteen working days of receipt, or sooner where law requires. Reasonable requests are generally free. If a request cannot be fulfilled, we explain why and describe complaint or remedy channels.</p>
+        <p>11.4 Consent withdrawal does not affect prior lawful consent-based processing. Account deletion does not automatically cancel subscriptions through app stores or other channels. The deletion process will indicate cancellation methods and address remaining entitlements according to law.</p>
+    </section>
+
+    <section id="en-minors">
+        <h2>12. Protection of Minors</h2>
+        <p>12.1 Minors should use the App under guardian guidance. Guardians should monitor use time, payments and information security. Applicable age limits, identity verification and anti-addiction requirements follow law and pre-use notices.</p>
+        <p><strong>12.2 If we process information of children under fourteen, we obtain guardian consent, establish and provide specific children’s information rules and apply appropriate safeguards. A minor’s acceptance of these Terms does not replace those requirements.</strong></p>
+        <p>12.3 Guardians may request investigation of information submitted without appropriate authorization or improper payments. After verification, we handle deletion, consent withdrawal or refunds according to law.</p>
+    </section>
+
+    <section id="en-liability">
+        <h2>13. Service Risks and Liability</h2>
+        <p>13.1 We provide services according to law and express commitments. Devices, networks, maintenance and other reasonable factors may cause delay, faults or interruptions. We take reasonable measures to fix and reduce impact but do not promise error-free, uninterrupted service in all circumstances.</p>
+        <p>13.2 Except for professional services expressly offered with appropriate qualifications, general information, tool outputs and third-party content are for reference. Verify important decisions carefully. Third-party goods, links and services follow their providers’ rules; we remain responsible for our statutory obligations.</p>
+        <p>13.3 Where force majeure prevents performance, responsibility is determined by its effects and law. We will explain promptly and mitigate loss. Force majeure occurring after delayed performance does not automatically excuse liability.</p>
+        <p><strong>13.4 Responsibility depends on applicable law, fault, causation and loss. To the extent permitted by law, we are not liable for losses that were not reasonably foreseeable and have no direct causal connection to breach. These Terms do not exclude non-excludable liability, including personal injury or property loss caused intentionally or by gross negligence, or statutory consumer and privacy rights.</strong></p>
+    </section>
+
+    <section id="en-changes">
+        <h2>14. Changes and Disputes</h2>
+        <p><strong>14.1 We may update this document for legal or service changes and publish revisions and effective dates. Material changes receive prominent in-App or other reasonable notice and reasonable reading time. Where renewed consent or confirmation is required, we obtain it before implementation rather than relying solely on continued use.</strong></p>
+        <p>14.2 If you reject changes to the Terms, you may stop affected services and contact us about data and purchased entitlements. Privacy Policy changes do not automatically expand existing consent or affect lawful refusal of optional processing.</p>
+        <p>14.3 For services provided to mainland China, formation, performance, interpretation and dispute resolution are governed by mainland Chinese law. Non-excludable mandatory local laws continue to apply where services involve other regions.</p>
+        <p>14.4 Parties may first negotiate or complain to consumer protection bodies or competent authorities. If negotiation fails, either party may bring proceedings before a legally competent people’s court.</p>
+        <p>14.5 Invalidity or unenforceability of a provision does not affect the rest. Failure to enforce a breach immediately does not waive our lawful rights.</p>
+    </section>
+
+    <section id="en-contact">
+        <h2>15. Contact Us</h2>
+        <p>For questions about these Terms, privacy, paid entitlements or enforcement, or to exercise privacy rights or complain, use the App’s help, feedback or support entry where available, or developer contact details on its official distribution page or app store listing.</p>
+        <p>Valid contact details published by the actual provider through those channels are the App’s official request channels. Relevant privacy notices will provide specific processor identity and contact information. Check the App name and developer before sending information to avoid unofficial recipients.</p>
+        <p>Describe your issue and provide necessary verification information. Do not send passwords, verification codes or unrelated sensitive information. We will handle requests promptly under Section 11 and applicable law.</p>
+    </section>
+    <footer>Provisions concerning specific features apply only where the App actually offers them. Nothing in these Terms diminishes your statutory rights.</footer>
+
+    <section id="en-android-background">
+        <h2>Android Reminder and Home Screen Widget Background Activity</h2>
+        <p>After you set a medication reminder, Android may start Shike’s background process at the scheduled time to display it. After you add a home screen widget, the system may start the background process to update it. Widgets refresh over the network every 30 minutes and also refresh when content changes. These activities support reminders and widgets you have chosen to use.</p>
+        <p>“Settings—Notification settings—Allow system events to restore reminders and widgets” is a separate optional switch, turned off by default. Only after you explicitly enable it, and only while reminders need restoring or widgets have been added, does Shike receive device boot completion, app update, system time or time zone changes, and exact alarm permission change events to restore reminders and widgets. These events do not open the app interface or start other apps. You may turn this off at any time. Turning it off does not affect normal use or already scheduled reminders, but after restarting your device you must open Shike again to restore reminders and widget refreshes. Users upgrading from older versions must also enable it explicitly; privacy policy acceptance or push notification consent is not used as consent for this setting.</p>
+    </section>
+</div>
 </main>
+<script>
+(function () {
+    var key = 'policy-language';
+    function apply(lang) {
+        var english = lang === 'en';
+        document.getElementById('policy-zh').hidden = english;
+        document.getElementById('policy-en').hidden = !english;
+        document.documentElement.lang = english ? 'en' : 'zh-CN';
+        document.title = english ? 'Terms of Use and Privacy Policy' : '用户协议与隐私政策';
+        document.querySelector('meta[name="description"]').content = english
+            ? 'Terms of Use and Privacy Policy: service rules, responsibilities, personal information protection and your rights.'
+            : '应用用户协议与隐私政策，说明服务规则、用户责任、个人信息保护及权利行使方式。';
+        document.querySelectorAll('[data-lang]').forEach(function (button) {
+            button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+        });
+    }
+    var saved;
+    try { saved = localStorage.getItem(key); } catch (_) {}
+    var preferred = (navigator.languages && navigator.languages[0]) || navigator.language || 'zh';
+    apply(saved === 'zh' || saved === 'en' ? saved : (/^zh/i.test(preferred) ? 'zh' : 'en'));
+    document.querySelectorAll('[data-lang]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var lang = button.dataset.lang;
+            apply(lang);
+            try { localStorage.setItem(key, lang); } catch (_) {}
+            if (location.hash) {
+                var id = location.hash.slice(1).replace(/^en-/, '');
+                var target = document.getElementById((lang === 'en' ? 'en-' : '') + id);
+                if (target) history.replaceState(null, '', '#' + target.id);
+            }
+        });
+    });
+}());
+</script>
 </body>
 </html>
